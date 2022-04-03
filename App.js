@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TextInput, Button, SafeAreaView, ScrollView } f
 import { Dimensions } from 'react-native';
 import { borderBottomColor, borderLeftColor, textShadowColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 import { useState } from 'react'
+import GoalItems from './components/GoalItems';
 
 export default function App() {
   // setCustomText(customTextProps);
@@ -27,12 +28,7 @@ export default function App() {
         <Button title="(+) Add goal" onPress={AddGoal} />
       </View>
       <ScrollView style={styles.main_container}>
-        <View style={styles.ListContainer}>
-          {listGoal.map((goal) => {
-            keyID = keyID + 1;
-            return <Text style={styles.goal} key={keyID}> {goal} </Text>
-          })}
-        </View>
+        <GoalItems title={listGoal} />
       </ScrollView>
 
     </SafeAreaView>
@@ -64,16 +60,5 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
 
-  goal: {
-    backgroundColor: '#61A4BC',
-    marginBottom: 10,
-    width: dv_width * 0.7,
-    height: 30,
-    borderColor: '#1A132F',
-    borderWidth: 1,
-    fontSize: 20,
-    textAlign: 'center',
-
-  }
 }
 );
