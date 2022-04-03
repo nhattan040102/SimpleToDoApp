@@ -4,29 +4,19 @@ import { Dimensions } from 'react-native';
 import { borderBottomColor, borderLeftColor, textShadowColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 import { useState } from 'react'
 import GoalItems from './components/GoalItems';
+import GoalInput from './components/GoalInput';
 
 export default function App() {
   // setCustomText(customTextProps);
-  const [enteredGoal, setEnteredGoal] = useState('')
   const [listGoal, setListGoal] = useState([])
 
-  let keyID = 0;
-
-  const AddGoal = () => {
-    setListGoal([...listGoal, enteredGoal]);
+  const AddGoal = (goal) => {
+    setListGoal([...listGoal, goal]);
   }
 
   return (
     <SafeAreaView >
-      <View style={styles.input_view}>
-        <TextInput
-          placeholder="Goal you want to add"
-          style={styles.text_input}
-          onChangeText={(text) => { setEnteredGoal(text) }}
-          value={enteredGoal}
-        />
-        <Button title="(+) Add goal" onPress={AddGoal} />
-      </View>
+      <GoalInput AddGoal={AddGoal} />
       <ScrollView style={styles.main_container}>
         <GoalItems title={listGoal} />
       </ScrollView>
@@ -53,12 +43,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     width: dv_width * 0.6,
   },
-
-  ListContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 10
-  },
-
 }
 );
