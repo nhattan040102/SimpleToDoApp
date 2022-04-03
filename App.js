@@ -29,19 +29,8 @@ let dv_width = Dimensions.get('window').width;
 let dv_height = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
-  input_view: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-  },
+  main_container: {
 
-  text_input: {
-    borderBottomColor: "blue",
-    borderBottomWidth: 1,
-    textAlign: 'center',
-    height: 30,
-    fontSize: 20,
-    width: dv_width * 0.6,
   },
 }
 );

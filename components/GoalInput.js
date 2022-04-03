@@ -11,7 +11,7 @@ const GoalInput = props => {
             <TextInput
                 placeholder="Goal you want to add"
                 style={styles.text_input}
-                onChangeText={(text) => { setEnteredGoal(text) }}
+                onChangeText={setEnteredGoal}
                 value={enteredGoal}
             />
             <Button title="(+) Add goal" onPress={() => props.AddGoal(enteredGoal)} />
