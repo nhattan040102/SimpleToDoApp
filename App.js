@@ -9,17 +9,25 @@ import GoalInput from './components/GoalInput';
 export default function App() {
   const [listGoal, setListGoal] = useState([]);
 
+  let goalID = 0;
   const AddGoal = (goal) => {
-    setListGoal([...listGoal, goal]);
+    setListGoal(currentGoals =>
+      [...currentGoals, { id: goalID.toString(), value: goal }]);
+    goalID = goalID + 1;
   };
 
+  const RemoveGoal = (id) => {
+    setListGoal(currentGoals => {
+      return currentGoals.filter(goal => goal.id != id);
+    })
+  }
   return (
     <SafeAreaView >
       <GoalInput AddGoal={AddGoal} />
       <ScrollView style={styles.main_container}>
         <GoalItems
           title={listGoal}
-          onDelete={() => console.log("Clicked!!")}
+          onDelete={RemoveGoal}
         />
       </ScrollView>
 

@@ -5,14 +5,14 @@ let dv_width = Dimensions.get('window').width;
 // let dv_height = Dimensions.get('window').height;
 
 const GoalItems = props => {
-    let keyID = 0;
+
     return (
 
         <View style={styles.ListContainer}>
             {props.title.map((goal) => {
-                keyID = keyID + 1;
+
                 return (
-                    <TouchableOpacity onPress={props.onDelete} key={keyID} activeOpacity={0.65}>
+                    <TouchableOpacity onPress={() => props.onDelete(goal.id)} key={goal.id} activeOpacity={0.65}>
                         <Text style={styles.goal}>
                             {goal}
                         </Text>
