@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, Dimensions } from 'react-native'
-import { React } from 'react'
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import { React } from 'react';
 
 let dv_width = Dimensions.get('window').width;
 // let dv_height = Dimensions.get('window').height;
@@ -7,12 +7,20 @@ let dv_width = Dimensions.get('window').width;
 const GoalItems = props => {
     let keyID = 0;
     return (
+
         <View style={styles.ListContainer}>
             {props.title.map((goal) => {
                 keyID = keyID + 1;
-                return <Text style={styles.goal} key={keyID}> {goal} </Text>
+                return (
+                    <TouchableOpacity onPress={props.onDelete} key={keyID} activeOpacity={0.65}>
+                        <Text style={styles.goal}>
+                            {goal}
+                        </Text>
+                    </TouchableOpacity>
+                );
             })}
         </View>
+
     );
 };
 

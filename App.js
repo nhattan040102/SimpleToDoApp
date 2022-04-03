@@ -7,18 +7,20 @@ import GoalItems from './components/GoalItems';
 import GoalInput from './components/GoalInput';
 
 export default function App() {
-  // setCustomText(customTextProps);
-  const [listGoal, setListGoal] = useState([])
+  const [listGoal, setListGoal] = useState([]);
 
   const AddGoal = (goal) => {
     setListGoal([...listGoal, goal]);
-  }
+  };
 
   return (
     <SafeAreaView >
       <GoalInput AddGoal={AddGoal} />
       <ScrollView style={styles.main_container}>
-        <GoalItems title={listGoal} />
+        <GoalItems
+          title={listGoal}
+          onDelete={() => console.log("Clicked!!")}
+        />
       </ScrollView>
 
     </SafeAreaView>
