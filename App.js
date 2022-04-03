@@ -12,7 +12,8 @@ export default function App() {
   let goalID = 0;
   const AddGoal = (goal) => {
     setListGoal(currentGoals =>
-      [...currentGoals, { id: goalID.toString(), value: goal }]);
+      [...currentGoals,
+      { id: Math.random().toString(), value: goal }]);
     goalID = goalID + 1;
   };
 
@@ -20,7 +21,8 @@ export default function App() {
     setListGoal(currentGoals => {
       return currentGoals.filter(goal => goal.id != id);
     })
-  }
+  };
+
   return (
     <SafeAreaView >
       <GoalInput AddGoal={AddGoal} />
