@@ -9,12 +9,17 @@ import GoalInput from './components/GoalInput';
 export default function App() {
   const [listGoal, setListGoal] = useState([]);
 
-  let goalID = 0;
+  const createGoalID = () => {
+    let current = new Date();
+    return current.getTime().toString();
+  }
+
   const AddGoal = (goal) => {
-    setListGoal(currentGoals =>
-      [...currentGoals,
-      { id: Math.random().toString(), value: goal }]);
-    goalID = goalID + 1;
+    var goalID = createGoalID();
+    setListGoal(listGoal =>
+      [...listGoal,
+      { id: goalID, value: goal }]);
+
   };
 
   const RemoveGoal = (id) => {
@@ -35,6 +40,7 @@ export default function App() {
 
     </SafeAreaView>
   );
+
 }
 
 let dv_width = Dimensions.get('window').width;
