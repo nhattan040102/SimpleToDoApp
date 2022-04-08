@@ -7,7 +7,11 @@ const GoalInput = props => {
     const [enteredGoal, setEnteredGoal] = useState('')
 
     return (
-        <Modal>
+        <Modal
+        onDismiss={clearText}
+        animationType={'slide'}
+        transparent={false}
+        visible={props.modalState}>
             <View style={styles.input_view}>
                 <TextInput
                     placeholder="Goal you want to add"
@@ -24,8 +28,9 @@ const GoalInput = props => {
 const styles = StyleSheet.create({
     input_view: {
         flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-between',
+        marginTop: 15,
+        width: 250
     },
 
     text_input: {
