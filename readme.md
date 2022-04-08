@@ -36,9 +36,9 @@ The tutorial I follow to learn is , <a href="https://www.udemy.com/course/react-
 - Using expo app to run the app on your phone
 
 ## UI
-<img source="assets/Home_page.png"> </img>
+<img src="assets/Home_page.png">
 
-<img source="assets/Add goal.png"> </img>
+<img src="assets/Add goal.png">
 
 # Contact
 Tran Nguyen Nhat Tan - tantran.040102@gmail.com
