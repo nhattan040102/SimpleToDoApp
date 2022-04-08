@@ -8,6 +8,7 @@ import GoalInput from './components/GoalInput';
 
 export default function App() {
   const [listGoal, setListGoal] = useState([]);
+  const [modalState, setmodalState] = useState(false);
 
   const createGoalID = () => {
     let current = new Date();
@@ -19,7 +20,7 @@ export default function App() {
     setListGoal(listGoal =>
       [...listGoal,
       { id: goalID, value: goal }]);
-
+    setmodalState(false);
   };
 
   const RemoveGoal = (id) => {
@@ -28,9 +29,14 @@ export default function App() {
     })
   };
 
+  const openModal = () => {
+    setmodalState(true);
+  }
+
   return (
     <SafeAreaView >
-      <GoalInput AddGoal={AddGoal} />
+      <Button title="(+) Add goal" onPress={openModal} />
+      <GoalInput AddGoal={AddGoal} modalState={modalState} />
       <ScrollView style={styles.main_container}>
         <GoalItems
           title={listGoal}

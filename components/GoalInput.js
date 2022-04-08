@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Dimensions } from 'react-native'
+import { View, TextInput, Button, StyleSheet, Dimensions, Modal } from 'react-native'
 
 let dv_width = Dimensions.get('window').width;
 
@@ -7,15 +7,17 @@ const GoalInput = props => {
     const [enteredGoal, setEnteredGoal] = useState('')
 
     return (
-        <View style={styles.input_view}>
-            <TextInput
-                placeholder="Goal you want to add"
-                style={styles.text_input}
-                onChangeText={setEnteredGoal}
-                value={enteredGoal}
-            />
-            <Button title="(+) Add goal" onPress={() => props.AddGoal(enteredGoal)} />
-        </View>
+        <Modal>
+            <View style={styles.input_view}>
+                <TextInput
+                    placeholder="Goal you want to add"
+                    style={styles.text_input}
+                    onChangeText={setEnteredGoal}
+                    value={enteredGoal}
+                />
+                <Button title="(+) Add goal" onPress={() => props.AddGoal(enteredGoal)} />
+            </View>
+        </Modal>
     );
 };
 
