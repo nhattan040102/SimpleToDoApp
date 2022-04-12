@@ -35,12 +35,7 @@ The tutorial I follow to learn is , <a href="https://www.udemy.com/course/react-
     ```
 - Using expo app to run the app on your phone
 
-## UI
-### home page
-<img src="assets/Home_page.png">
 
-### add goal
-<img src="assets/Add_goal_page.png">
 
 # Contact
 Tran Nguyen Nhat Tan - tantran.040102@gmail.com
